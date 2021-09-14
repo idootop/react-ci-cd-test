@@ -5,12 +5,19 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
 
-  const test = () => {
+  const test = (): string => {
     let str = 'hello world';
     console.log(`${str}`);
+    return str;
   };
 
+  function test2(): string {
+    let str = 'hello world again';
+    return str;
+  }
+
   test();
+  console.log(test2());
 
   return (
     <div className="App">
@@ -22,9 +29,7 @@ function App() {
             count is: {count}
           </button>
         </p>
-        <p>
-          CI/CD test
-        </p>
+        <p>CI/CD test</p>
         <p>
           <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
             Learn React
