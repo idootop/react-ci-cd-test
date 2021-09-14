@@ -187,3 +187,61 @@ export default defineConfig({
 ```
 
 ## Step4: CI/CD
+
+[GitHub Actions 入门教程](http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
+
+.github/workflows/action.yml
+
+```yaml
+name: Build & Deploy
+description: Deploy React App to Github Pages
+author: idootop
+branding:
+  color: blue
+  icon: code
+
+on: 
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      # 第一步 拉代码
+      - name: Checkout ⚡️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      # 第二步 安装依赖打包
+      - name: Install and Build 🔧  
+        run: |
+          npm install
+          npm run build
+          cp build/index.html build/404.html
+        shell: bash
+
+      # 第三步 将打包后的文件推送至下面填写的分支，部署到github的静态页
+      - name: Deploy 🚀 
+        id: 'deploy'
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          BRANCH: static-page # 编译文件分支
+          FOLDER: dist # 编译文件的文件夹
+      
+      # 第三步 发送邮件通知
+      # - name: Send Notification 📧 
+      #   uses: dawidd6/action-send-mail@master
+      #   with:
+      #     server_address: smtp.163.com 
+      #     server_port: 465
+      #     username: ${{ secrets.MAIL_USERNAME }}
+      #     password: ${{ secrets.MAIL_PASSWORD }}
+      #     subject: 【】#邮件主题
+      #     body: 邮件内容
+      #     to: xxxx@xxx.com # 收件邮箱
+      #     from: GitHub Actions # 发件人
+```

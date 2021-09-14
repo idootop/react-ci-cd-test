@@ -1,6 +1,7 @@
 {
   "name": "react-ci-cd-test",
   "version": "0.0.0",
+  "homepage": "https://idootop.github.io/react-ci-cd-test",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
