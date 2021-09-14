@@ -6,8 +6,8 @@ function App() {
   const [count, setCount] = useState(0);
 
   const test = () => {
-    let str = '离谱';
-    console.log('str');
+    let str = 'hello world';
+    console.log(`${str}`);
   };
 
   test();
