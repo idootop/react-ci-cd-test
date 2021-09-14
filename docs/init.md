@@ -10,4 +10,8 @@ pnpm init vite@latest react-ci-cd-test -- --template react-ts
 
 ```shell
 git init
+#初始化提交
+git branch -M main
+git remote add origin https://github.com/idootop/react-ci-cd-test.git
+git push -u origin main
 ```
