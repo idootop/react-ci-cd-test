@@ -1,7 +1,4 @@
 name: 'Build & Deploy React App to Github Pages'
-branding:
-  color: blue
-  icon: code
 
 on: 
   push:
