@@ -1,6 +1,6 @@
-name: Build & Deploy
-description: Deploy React App to Github Pages
-author: idootop
+name: 'Build & Deploy'
+description: 'Deploy React App to Github Pages'
+author: 'idootop'
 branding:
   color: blue
   icon: code
