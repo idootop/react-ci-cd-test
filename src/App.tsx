@@ -19,6 +19,31 @@ function App() {
   test();
   console.log(test2());
 
+  function test4(v1: string, v2: string) {
+    //等价于 test4(String v1, String v2)
+  }
+
+  function test5(v1: string, v2: string = 'default') {
+    //等价于 test5(String v1, [String v2 = 'default'])
+  }
+
+  function test1(v1: string, v2?: string) {
+    //等价于 test5(String v1, [String? v2])
+  }
+
+  function test6(
+    v1: string,
+    {
+      v2, //默认值为undefined
+      v3 = 'default',
+    }: {
+      v2?: string;
+      v3?: string;
+    } = {},
+  ) {
+    //等价于 test6(String v1, {String? v2, String v2 = 'default'})
+  }
+
   return (
     <div className="App">
       <header className="App-header">
